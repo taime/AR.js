@@ -10,6 +10,9 @@
 
 <script src="assets/aframe-extras.loaders.min.js"></script>
 
+<!-- import events.js script -->
+<script src="events.js"></script>
+
 <body style='margin : 0px; overflow: hidden;'>
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
     <a-scene embedded vr-mode-ui="enabled: false"
@@ -24,13 +27,17 @@
             <a-box position='0 0.5 0' color="yellow"></a-box>
         </a-marker>
 
-        <a-marker id="animated-marker" type='barcode' value='6'>
-            <a-entity animation-mixer gltf-model="#animated-asset" scale="0.01 0.01 0.01">
+        <a-marker id="animated-marker" type='barcode' value='6' markerhandler emitevents="true"
+            cursor="rayOrigin: mouse">
+            <a-entity id="animated-model" animation-mixer gltf-model="#animated-asset" scale="0.01 0.01 0.01">
             </a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
     </a-scene>
+
+
+
 </body>
 
 </html>
